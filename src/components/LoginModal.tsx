@@ -35,11 +35,11 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl bg-white border-0 p-0 overflow-hidden shadow-2xl max-h-[90vh]">
+      <DialogContent className="max-w-5xl bg-white border-0 p-0 overflow-hidden shadow-2xl max-h-[85vh] rounded-lg" style={{width: '85vw', maxWidth: '1000px'}}>
         <DialogTitle className="sr-only">Login or Sign Up</DialogTitle>
-        <div className="flex h-full min-h-[650px]">
+        <div className="flex h-full min-h-[600px]">
           {/* Left Side - Premium Hero Image */}
-          <div className="hidden md:flex md:w-2/5 relative overflow-hidden bg-gradient-to-b from-blue-600 to-blue-800">
+          <div className="hidden md:flex md:w-[45%] relative overflow-hidden bg-gradient-to-b from-blue-600 to-blue-800">
             <img
               src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=500&q=80"
               alt="Adventure experience"
@@ -74,7 +74,7 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
           </div>
 
           {/* Right Side - Premium Form */}
-          <div className="w-full md:w-3/5 flex flex-col bg-white overflow-y-auto">
+          <div className="w-full md:w-[55%] flex flex-col bg-white overflow-y-auto">
             <Tabs defaultValue="login" className="w-full flex flex-col h-full">
               {/* Premium Tab Headers */}
               <div className="sticky top-0 z-10 bg-white border-b border-gray-100">
