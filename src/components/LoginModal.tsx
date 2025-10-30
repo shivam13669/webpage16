@@ -35,11 +35,11 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-5xl bg-white border-0 p-0 overflow-hidden shadow-2xl max-h-[85vh] rounded-lg" style={{width: '85vw', maxWidth: '1000px'}}>
+      <DialogContent className="max-w-6xl bg-white border-0 p-0 overflow-hidden shadow-2xl max-h-[85vh] rounded-lg" style={{width: '90vw', maxWidth: '1200px'}}>
         <DialogTitle className="sr-only">Login or Sign Up</DialogTitle>
         <div className="flex h-full min-h-[600px]">
           {/* Left Side - Premium Hero Image */}
-          <div className="hidden md:flex md:w-[45%] relative overflow-hidden bg-gradient-to-b from-blue-600 to-blue-800">
+          <div className="hidden md:flex md:w-[62%] relative overflow-hidden bg-gradient-to-b from-blue-600 to-blue-800">
             <img
               src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=500&q=80"
               alt="Adventure experience"
