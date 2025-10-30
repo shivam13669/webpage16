@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock, ArrowRight } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -34,134 +34,159 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl bg-white border-0 p-0 overflow-hidden shadow-2xl h-[600px]">
+      <DialogContent className="max-w-5xl bg-white border-0 p-0 overflow-hidden shadow-2xl h-[650px]">
         <div className="flex h-full">
-          {/* Left Side - Image */}
-          <div className="hidden md:flex md:w-2/5 relative overflow-hidden">
+          {/* Left Side - Hero Image */}
+          <div className="hidden lg:flex lg:w-2/5 relative overflow-hidden bg-gray-900">
             <img
               src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80"
               alt="Adventure experience"
               className="w-full h-full object-cover"
             />
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex flex-col justify-end p-6">
-              <div className="text-white">
-                <h3 className="text-2xl font-bold mb-2">
-                  Your Adventure Awaits
+            {/* Dark Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex flex-col justify-between p-8">
+              <div>
+                <h3 className="text-3xl font-bold text-white mb-2">
+                  Discover Your Next Adventure
                 </h3>
                 <p className="text-sm text-white/90">
-                  Discover unforgettable experiences with fellow travelers and local experts
+                  Experience unforgettable moments with thousands of verified activities
                 </p>
+              </div>
+              <div className="space-y-2 text-white/80 text-sm">
+                <div className="flex items-center gap-2">
+                  <span className="text-yellow-400">✓</span> 20,000+ verified activities
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-yellow-400">✓</span> 1,500+ trusted suppliers
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-yellow-400">✓</span> Best price guarantee
+                </div>
               </div>
             </div>
           </div>
 
           {/* Right Side - Form */}
-          <div className="w-full md:w-3/5 overflow-y-auto flex flex-col">
-            <Tabs defaultValue="login" className="w-full flex flex-col flex-1">
+          <div className="w-full lg:w-3/5 overflow-y-auto flex flex-col bg-white">
+            <Tabs defaultValue="login" className="w-full flex flex-col h-full">
               {/* Tab Headers */}
-              <TabsList className="w-full rounded-none bg-white border-b border-gray-200 p-0 h-auto sticky top-0 z-10">
-                <TabsTrigger
-                  value="login"
-                  className="flex-1 rounded-none py-4 text-gray-700 data-[state=active]:text-gray-900 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:bg-white"
-                >
-                  Login
-                </TabsTrigger>
-                <TabsTrigger
-                  value="signup"
-                  className="flex-1 rounded-none py-4 text-gray-700 data-[state=active]:text-gray-900 data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:bg-white"
-                >
-                  Sign Up
-                </TabsTrigger>
-              </TabsList>
+              <div className="sticky top-0 z-10 bg-white border-b border-gray-200">
+                <TabsList className="w-full rounded-none bg-white p-0 h-auto flex justify-start">
+                  <TabsTrigger
+                    value="login"
+                    className="flex-none px-8 py-4 rounded-none text-base text-gray-600 font-semibold data-[state=active]:text-gray-900 data-[state=active]:border-b-4 data-[state=active]:border-orange-500 data-[state=active]:bg-white hover:text-gray-900"
+                  >
+                    Login
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="signup"
+                    className="flex-none px-8 py-4 rounded-none text-base text-gray-600 font-semibold data-[state=active]:text-gray-900 data-[state=active]:border-b-4 data-[state=active]:border-orange-500 data-[state=active]:bg-white hover:text-gray-900"
+                  >
+                    Sign Up
+                  </TabsTrigger>
+                </TabsList>
+              </div>
 
               {/* Login Tab */}
-              <TabsContent value="login" className="p-6 mt-0 flex-1 overflow-y-auto">
-                <div className="space-y-4">
+              <TabsContent value="login" className="mt-0 flex-1 overflow-y-auto">
+                <div className="p-8 space-y-6">
                   <div>
-                    <h2 className="text-xl font-semibold text-gray-900 mb-1">
-                      Log into Your Account
+                    <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                      Welcome Back
                     </h2>
-                    <p className="text-sm text-gray-600 mb-4">
-                      Enter your credentials below
+                    <p className="text-gray-600">
+                      Log in to your account and explore amazing experiences
                     </p>
                   </div>
 
-                  <form onSubmit={handleLogin} className="space-y-4">
+                  <form onSubmit={handleLogin} className="space-y-5">
+                    {/* Email Field */}
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-gray-700">
-                        Email
+                      <label className="text-sm font-semibold text-gray-900">
+                        Email Address
                       </label>
-                      <Input
-                        type="email"
-                        placeholder="you@example.com"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full border-gray-300 focus:border-primary"
-                        required
-                      />
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                        <Input
+                          type="email"
+                          placeholder="you@example.com"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                          required
+                        />
+                      </div>
                     </div>
 
+                    {/* Password Field */}
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-gray-700">
+                      <label className="text-sm font-semibold text-gray-900">
                         Password
                       </label>
                       <div className="relative">
+                        <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                         <Input
                           type={showPassword ? "text" : "password"}
                           placeholder="••••••••"
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
-                          className="w-full border-gray-300 focus:border-primary pr-10"
+                          className="w-full pl-10 pr-10 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                           required
                         />
                         <button
                           type="button"
                           onClick={() => setShowPassword(!showPassword)}
-                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                          className="absolute right-3 top-3 text-gray-500 hover:text-gray-700"
                         >
                           {showPassword ? (
-                            <EyeOff className="h-4 w-4" />
+                            <EyeOff className="h-5 w-5" />
                           ) : (
-                            <Eye className="h-4 w-4" />
+                            <Eye className="h-5 w-5" />
                           )}
                         </button>
                       </div>
                     </div>
 
-                    <div className="flex justify-between items-center text-sm">
-                      <label className="flex items-center gap-2">
-                        <input type="checkbox" className="rounded" />
-                        <span className="text-gray-700">Remember me</span>
+                    {/* Remember & Forgot */}
+                    <div className="flex justify-between items-center">
+                      <label className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          className="w-4 h-4 rounded border-gray-300 cursor-pointer"
+                        />
+                        <span className="text-sm text-gray-700">Remember me</span>
                       </label>
-                      <a href="#" className="text-primary hover:underline font-medium">
-                        Forgot Password?
+                      <a
+                        href="#"
+                        className="text-sm text-orange-600 hover:text-orange-700 font-semibold"
+                      >
+                        Forgot password?
                       </a>
                     </div>
 
-                    <Button
+                    {/* Login Button */}
+                    <button
                       type="submit"
-                      variant="secondary"
-                      className="w-full"
+                      className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2 transition-colors duration-200"
                     >
-                      Login & Continue
-                    </Button>
+                      Login & Explore
+                      <ArrowRight className="h-5 w-5" />
+                    </button>
                   </form>
 
-                  <div className="relative my-4">
-                    <div className="absolute inset-0 flex items-center">
-                      <div className="w-full border-t border-gray-300"></div>
-                    </div>
-                    <div className="relative flex justify-center text-sm">
-                      <span className="px-2 bg-white text-gray-600">Or</span>
-                    </div>
+                  {/* Divider */}
+                  <div className="relative flex items-center gap-4">
+                    <div className="flex-1 border-t border-gray-300"></div>
+                    <span className="text-sm text-gray-600 font-medium">
+                      Or continue with
+                    </span>
+                    <div className="flex-1 border-t border-gray-300"></div>
                   </div>
 
-                  <Button
-                    variant="outline"
-                    className="w-full border-gray-300 text-gray-700 font-semibold py-2"
-                  >
-                    <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
+                  {/* Google Sign In */}
+                  <button className="w-full border border-gray-300 text-gray-700 font-semibold py-2.5 px-6 rounded-lg hover:bg-gray-50 transition-colors duration-200 flex items-center justify-center gap-2">
+                    <svg className="w-5 h-5" viewBox="0 0 24 24">
                       <path
                         fill="currentColor"
                         d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -180,110 +205,107 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
                       />
                     </svg>
                     Sign in with Google
-                  </Button>
-
-                  <div className="mt-6 pt-4 border-t border-gray-200">
-                    <h4 className="text-sm font-semibold text-gray-900 mb-3 text-center">
-                      Book With Confidence
-                    </h4>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="text-center">
-                        <div className="text-sm font-bold text-green-600">4.5/5</div>
-                        <p className="text-xs text-gray-600">Google Reviews</p>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-sm font-bold text-blue-600">4.0/5</div>
-                        <p className="text-xs text-gray-600">TripAdvisor</p>
-                      </div>
-                    </div>
-                  </div>
+                  </button>
                 </div>
               </TabsContent>
 
               {/* Sign Up Tab */}
-              <TabsContent value="signup" className="p-6 mt-0 flex-1 overflow-y-auto">
-                <div className="space-y-4">
+              <TabsContent value="signup" className="mt-0 flex-1 overflow-y-auto">
+                <div className="p-8 space-y-6">
                   <div>
-                    <h2 className="text-xl font-semibold text-gray-900 mb-1">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-2">
                       Create Your Account
                     </h2>
-                    <p className="text-sm text-gray-600 mb-4">
-                      Join us to start exploring
+                    <p className="text-gray-600">
+                      Join thousands of travelers and start your adventure today
                     </p>
                   </div>
 
-                  <form onSubmit={handleSignup} className="space-y-4">
+                  <form onSubmit={handleSignup} className="space-y-5">
+                    {/* Email Field */}
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-gray-700">
-                        Email
+                      <label className="text-sm font-semibold text-gray-900">
+                        Email Address
                       </label>
-                      <Input
-                        type="email"
-                        placeholder="you@example.com"
-                        value={signupEmail}
-                        onChange={(e) => setSignupEmail(e.target.value)}
-                        className="w-full border-gray-300 focus:border-primary"
-                        required
-                      />
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                        <Input
+                          type="email"
+                          placeholder="you@example.com"
+                          value={signupEmail}
+                          onChange={(e) => setSignupEmail(e.target.value)}
+                          className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                          required
+                        />
+                      </div>
                     </div>
 
+                    {/* Password Field */}
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-gray-700">
+                      <label className="text-sm font-semibold text-gray-900">
                         Password
                       </label>
                       <div className="relative">
+                        <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                         <Input
                           type={showSignupPassword ? "text" : "password"}
                           placeholder="••••••••"
                           value={signupPassword}
                           onChange={(e) => setSignupPassword(e.target.value)}
-                          className="w-full border-gray-300 focus:border-primary pr-10"
+                          className="w-full pl-10 pr-10 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                           required
                         />
                         <button
                           type="button"
                           onClick={() => setShowSignupPassword(!showSignupPassword)}
-                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                          className="absolute right-3 top-3 text-gray-500 hover:text-gray-700"
                         >
                           {showSignupPassword ? (
-                            <EyeOff className="h-4 w-4" />
+                            <EyeOff className="h-5 w-5" />
                           ) : (
-                            <Eye className="h-4 w-4" />
+                            <Eye className="h-5 w-5" />
                           )}
                         </button>
                       </div>
                     </div>
 
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" className="rounded" required />
+                    {/* Terms Checkbox */}
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        className="w-4 h-4 rounded border-gray-300 cursor-pointer"
+                        required
+                      />
                       <span className="text-sm text-gray-700">
-                        I agree to the Terms & Conditions
+                        I agree to the{" "}
+                        <a href="#" className="text-orange-600 hover:text-orange-700 font-semibold">
+                          Terms & Conditions
+                        </a>
                       </span>
                     </label>
 
-                    <Button
+                    {/* Sign Up Button */}
+                    <button
                       type="submit"
-                      variant="secondary"
-                      className="w-full"
+                      className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2 transition-colors duration-200"
                     >
                       Create Account
-                    </Button>
+                      <ArrowRight className="h-5 w-5" />
+                    </button>
                   </form>
 
-                  <div className="relative my-4">
-                    <div className="absolute inset-0 flex items-center">
-                      <div className="w-full border-t border-gray-300"></div>
-                    </div>
-                    <div className="relative flex justify-center text-sm">
-                      <span className="px-2 bg-white text-gray-600">Or</span>
-                    </div>
+                  {/* Divider */}
+                  <div className="relative flex items-center gap-4">
+                    <div className="flex-1 border-t border-gray-300"></div>
+                    <span className="text-sm text-gray-600 font-medium">
+                      Or continue with
+                    </span>
+                    <div className="flex-1 border-t border-gray-300"></div>
                   </div>
 
-                  <Button
-                    variant="outline"
-                    className="w-full border-gray-300 text-gray-700 font-semibold py-2"
-                  >
-                    <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
+                  {/* Google Sign In */}
+                  <button className="w-full border border-gray-300 text-gray-700 font-semibold py-2.5 px-6 rounded-lg hover:bg-gray-50 transition-colors duration-200 flex items-center justify-center gap-2">
+                    <svg className="w-5 h-5" viewBox="0 0 24 24">
                       <path
                         fill="currentColor"
                         d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -302,23 +324,7 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
                       />
                     </svg>
                     Sign up with Google
-                  </Button>
-
-                  <div className="mt-6 pt-4 border-t border-gray-200">
-                    <h4 className="text-sm font-semibold text-gray-900 mb-3 text-center">
-                      Book With Confidence
-                    </h4>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="text-center">
-                        <div className="text-sm font-bold text-green-600">4.5/5</div>
-                        <p className="text-xs text-gray-600">Google Reviews</p>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-sm font-bold text-blue-600">4.0/5</div>
-                        <p className="text-xs text-gray-600">TripAdvisor</p>
-                      </div>
-                    </div>
-                  </div>
+                  </button>
                 </div>
               </TabsContent>
             </Tabs>
