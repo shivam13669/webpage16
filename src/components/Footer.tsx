@@ -34,9 +34,6 @@ const Footer = () => {
                     <WhatsAppIcon className="h-5 w-5 scale-90" />
                   </a>
                 </Button>
-                <Button variant="ghost" size="icon" className="text-white hover:text-adventure-gold hover:bg-white/10">
-                  <Youtube className="h-5 w-5" />
-                </Button>
               </div>
             </div>
 
