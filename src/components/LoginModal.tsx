@@ -74,7 +74,7 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
           </div>
 
           {/* Right Side - Premium Form */}
-          <div className="w-full md:w-[38%] flex flex-col bg-white overflow-y-auto">
+          <div className="w-full md:w-[45%] flex flex-col bg-white overflow-y-auto">
             <Tabs defaultValue="login" className="w-full flex flex-col h-full">
               {/* Premium Tab Headers */}
               <div className="sticky top-0 z-10 bg-white border-b border-gray-100">
