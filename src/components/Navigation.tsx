@@ -112,7 +112,15 @@ const Navigation = () => {
               })}
               <div className="px-3 py-2 flex items-center gap-2">
                 <CurrencyPicker value={currency} onChange={setCurrency} className="flex-1" />
-                <Link to="/login" className="flex-none px-4 py-2 rounded-md bg-white/10 text-white text-sm font-medium">Login</Link>
+                <button
+                  onClick={() => {
+                    setIsLoginModalOpen(true);
+                    setIsOpen(false);
+                  }}
+                  className="flex-none px-4 py-2 rounded-md bg-white/10 text-white text-sm font-medium hover:bg-white/20 transition-colors"
+                >
+                  Login
+                </button>
               </div>
             </div>
           </div>
