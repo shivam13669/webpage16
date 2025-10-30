@@ -126,6 +126,8 @@ const Navigation = () => {
           </div>
         )}
       </div>
+
+      <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
     </nav>
   );
 };
