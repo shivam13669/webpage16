@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { CurrencyPicker } from "./CurrencyPicker";
+import { LoginModal } from "./LoginModal";
 import { useCurrency } from "@/context/CurrencyContext";
 
 const navItems = [
@@ -16,6 +17,7 @@ const navItems = [
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const { currency, setCurrency } = useCurrency();
 
   return (
@@ -56,7 +58,12 @@ const Navigation = () => {
           {/* Currency + Login */}
           <div className="hidden md:flex items-center gap-3">
             <CurrencyPicker value={currency} onChange={setCurrency} />
-            <Link to="/login" className="text-white/90 hover:text-white font-medium">Login</Link>
+            <button
+              onClick={() => setIsLoginModalOpen(true)}
+              className="text-white/90 hover:text-white font-medium transition-colors"
+            >
+              Login
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -105,12 +112,22 @@ const Navigation = () => {
               })}
               <div className="px-3 py-2 flex items-center gap-2">
                 <CurrencyPicker value={currency} onChange={setCurrency} className="flex-1" />
-                <Link to="/login" className="flex-none px-4 py-2 rounded-md bg-white/10 text-white text-sm font-medium">Login</Link>
+                <button
+                  onClick={() => {
+                    setIsLoginModalOpen(true);
+                    setIsOpen(false);
+                  }}
+                  className="flex-none px-4 py-2 rounded-md bg-white/10 text-white text-sm font-medium hover:bg-white/20 transition-colors"
+                >
+                  Login
+                </button>
               </div>
             </div>
           </div>
         )}
       </div>
+
+      <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
     </nav>
   );
 };
