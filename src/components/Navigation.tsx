@@ -58,7 +58,12 @@ const Navigation = () => {
           {/* Currency + Login */}
           <div className="hidden md:flex items-center gap-3">
             <CurrencyPicker value={currency} onChange={setCurrency} />
-            <Link to="/login" className="text-white/90 hover:text-white font-medium">Login</Link>
+            <button
+              onClick={() => setIsLoginModalOpen(true)}
+              className="text-white/90 hover:text-white font-medium transition-colors"
+            >
+              Login
+            </button>
           </div>
 
           {/* Mobile menu button */}
