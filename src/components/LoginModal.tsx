@@ -224,7 +224,8 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
 
                 <Button
                   type="submit"
-                  className="w-full bg-secondary hover:bg-secondary/90 text-white font-semibold py-2"
+                  variant="secondary"
+                  className="w-full"
                 >
                   Create Account
                 </Button>
