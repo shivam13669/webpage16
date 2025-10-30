@@ -35,7 +35,7 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl bg-white border-0 p-0 overflow-hidden shadow-2xl max-h-[90vh]">
+      <DialogContent className="max-w-5xl bg-white border-0 p-0 overflow-hidden shadow-2xl max-h-[85vh] rounded-lg" style={{width: '85vw', maxWidth: '1000px'}}>
         <DialogTitle className="sr-only">Login or Sign Up</DialogTitle>
         <div className="flex h-full min-h-[650px]">
           {/* Left Side - Premium Hero Image */}
