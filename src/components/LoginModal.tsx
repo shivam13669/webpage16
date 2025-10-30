@@ -118,7 +118,7 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
 
                 <Button
                   type="submit"
-                  className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2"
+                  className="w-full bg-secondary hover:bg-secondary/90 text-white font-semibold py-2"
                 >
                   Login & Continue
                 </Button>
